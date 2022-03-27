@@ -29,9 +29,9 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_RIGHT and tank1X <= 736:
+            if event.key == pygame.K_RIGHT:
                 tank1Xchange = 0.5
-            elif event.key == pygame.K_LEFT and tank1X >= 0:
+            elif event.key == pygame.K_LEFT:
                 tank1Xchange = -0.5
             if event.key == pygame.K_UP:
                 tank1Ychange = -0.5
@@ -41,8 +41,9 @@ while running:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT or event.key == pygame.K_DOWN or event.key == pygame.K_UP:
                 tank1Xchange = 0
                 tank1Ychange = 0
-    tank1X += tank1Xchange
-    tank1Y += tank1Ychange
+    if not ((tank1X < 0 and tank1Xchange < 0) or (tank1X > 736 and tank1X > 0)):
+        tank1X += tank1Xchange
+        tank1Y += tank1Ychange
     place_tank1(tank1X, tank1Y)
     pygame.display.update()
     time.sleep(0.001)
