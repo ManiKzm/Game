@@ -41,9 +41,9 @@ while running:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT or event.key == pygame.K_DOWN or event.key == pygame.K_UP:
                 tank1Xchange = 0
                 tank1Ychange = 0
-    if not ((tank1X < 0 and tank1Xchange < 0) or (tank1X > 736 and tank1X > 0)):
+    if not ((tank1X < 0 and tank1Xchange < 0) or (tank1X > 736 and tank1Xchange > 0)):
         tank1X += tank1Xchange
-        tank1Y += tank1Ychange
+    tank1Y += tank1Ychange
     place_tank1(tank1X, tank1Y)
     pygame.display.update()
     time.sleep(0.001)
